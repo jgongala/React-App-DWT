@@ -6,6 +6,7 @@ import {
 } from "expo-image-picker";
 import { useState, useEffect } from "react";
 import { Colors } from "../../constants/colors";
+import MainButton from "../UI Design/MainButton";
 
 function ImagePicker() {
   const [pickedImage, setPickedImage] = useState();
@@ -21,8 +22,7 @@ function ImagePicker() {
   async function verifyPermissions() {
     //console.log(
     //  "Current camera permission status:",
-      cameraPermissionInformation.status
-    
+    cameraPermissionInformation.status;
 
     // Request permission if the status is undetermined.
     if (cameraPermissionInformation.status === PermissionStatus.UNDETERMINED) {
@@ -82,7 +82,9 @@ function ImagePicker() {
   return (
     <View>
       <View style={styles.imagePreview}>{imagePreview}</View>
-      <Button title="Take Image" onPress={takeImageHandler} />
+      <MainButton icon="camera" onPress={takeImageHandler}>
+        Take Image
+      </MainButton>
     </View>
   );
 }

@@ -1,12 +1,15 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "../../constants/colors";
 
 function MainButton({ onPress, icon, children }) {
   return (
-    <Pressable onPress={onPress}>
-      <Ionicons name={icon} />
-      <Text> {children} </Text>
+    <Pressable
+      style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+      onPress={onPress}
+    >
+      <Ionicons style={styles.icon} name={icon} />
+      <Text style={styles.text}> {children} </Text>
     </Pressable>
   );
 }
@@ -14,17 +17,29 @@ function MainButton({ onPress, icon, children }) {
 export default MainButton;
 
 const styles = StyleSheet.create({
-  imagePreview: {
-    width: "100%",
-    height: 200,
-    marginVertical: 8,
+  button: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    margin: 4,
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: Colors.primary,
     borderWidth: 2,
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
   },
-  image: {
-    width: "100%",
-    height: "100%",
+  pressed: {
+    opacity: 0.7,
+  },
+  icon: {
+    marginRight: 6,
+    color: Colors.accents,
+    fontSize: 16,
+  },
+  text: {
+    color: Colors.accents,
+    fontSize: 16,
+    fontWeight: "bold",
+    letterSpacing: 1,
   },
 });
