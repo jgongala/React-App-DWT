@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, TextInput, StyleSheet } from "react-native";
 import { Colors } from "../../constants/colors";
+import ImagePicker from "./ImagePicker";
 
 function NatureForm() {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -25,6 +26,7 @@ function NatureForm() {
           onBlur={() => setIsFocused(false)}
         />
       </View>
+      <ImagePicker />
     </ScrollView>
   );
 }
