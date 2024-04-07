@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { Colors } from "../../constants/colors";
 import MainButton from "../UI Design/MainButton";
 
-function ImagePicker() {
+function ImagePicker({ onImage }) {
   const [pickedImage, setPickedImage] = useState();
   const [cameraPermissionInformation, requestPermission] =
     useCameraPermissions();
@@ -22,6 +22,7 @@ function ImagePicker() {
   async function verifyPermissions() {
     //console.log(
     //  "Current camera permission status:",
+    //  cameraPermissionInformation.status),
     cameraPermissionInformation.status;
 
     // Request permission if the status is undetermined.
@@ -63,6 +64,7 @@ function ImagePicker() {
       // Setting the image URI if the operation wasn't cancelled and a URI exists.
       if (!imageContent.canceled && imageContent.uri) {
         setPickedImage(imageContent.uri);
+        onImage(imageContent.uri); // Call the onImage function with the selected image URI
       } else {
         //console.log("Image picking was cancelled or no URI found");
       }
