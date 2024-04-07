@@ -16,6 +16,9 @@
       "channel": "production"
     }
   },
+  "github": {
+    "image": "default" 
+  },
   "submit": {
     "production": {}
   }
