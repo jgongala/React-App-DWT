@@ -47,6 +47,7 @@ function Map({ route, navigation }) {
   }, [navigation, selectedLocation]);
 
   // Update header with save button using useLayoutEffect
+  
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: ({ tintColor }) => (
