@@ -13,7 +13,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -25,7 +28,8 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
-      "package": "com.juliagongala.myapp"
+      "package": "com.juliagongala.myapp",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -48,6 +52,9 @@
       "eas": {
         "projectId": "64452896-d85a-4011-94d1-918e7ed79546"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/64452896-d85a-4011-94d1-918e7ed79546"
     }
   }
 }
